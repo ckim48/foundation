@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CREATE Foundation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  body{
+    margin:0;
+    font-family: "Inter", Arial, sans-serif;
+    background:#eef1f7;
+  }
+
+  .hero{
+    width:100%;
+    padding:120px 20px;
+    margin-top:50px;
+    text-align:left;
+    background:linear-gradient(135deg, #003366 0%, #001A33 100%);
+    color:#ffffff;
+  }
+
+  .hero-inner{
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .hero-title{
+    font-size:48px;
+    font-weight:700;
+    margin:0 0 20px;
+    line-height:1.2;
+  }
+
+  .hero-sub{
+    max-width:650px;
+    font-size:20px;
+    line-height:1.55;
+    margin:0 0 35px;
+    opacity:0.92;
+  }
+
+  .hero-actions{
+    display:flex;
+    gap:16px;
+  }
+
+  .btn-main{
+    padding:14px 26px;
+    background:#ffffff;
+    color:#003366;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  .btn-outline{
+    padding:14px 26px;
+    border:2px solid #ffffff;
+    color:#ffffff;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+  }
+
+  @media(max-width:700px){
+    .hero-title{font-size:34px;}
+    .hero-sub{font-size:17px;}
+    .hero-actions{flex-direction:column; width:100%; max-width:300px;}
+    .btn-main, .btn-outline{text-align:center;}
+  }
+  .about-section{
+  padding:80px 20px;
+  background:#ffffff;
+}
+
+.about-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  align-items:flex-start;
+}
+
+.about-text{
+  flex:1 1 500px;
+}
+
+.about-text h2{
+  font-size:32px;
+  margin-bottom:20px;
+  color:#0e1b35;
+}
+
+.about-text p{
+  font-size:16px;
+  line-height:1.65;
+  margin-bottom:16px;
+  color:#4b5567;
+}
+
+.about-images{
+  flex:1 1 400px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.about-images img{
+  width:100%;
+  border-radius:10px;
+  border:2px solid #dce2ee;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+@media(max-width:800px){
+  .about-inner{flex-direction:column;}
+  .about-images{flex-direction:row; flex-wrap:wrap;}
+  .about-images img{flex:1 1 45%;}
+}
+.programs-section{
+  padding:80px 20px 90px;
+  background:#f7f8fc;
+}
+
+.programs-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.programs-header{
+  max-width:700px;
+  margin-bottom:40px;
+}
+
+.programs-header h2{
+  font-size:32px;
+  margin-bottom:10px;
+  color:#0e1b35;
+}
+
+.programs-header p{
+  font-size:16px;
+  color:#4b5567;
+  line-height:1.6;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:24px;
+  margin-bottom:40px;
+}
+
+.program-card{
+  background:#ffffff;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid #dde3f0;
+  box-shadow:0 6px 16px rgba(0,0,0,0.05);
+  display:flex;
+  flex-direction:column;
+}
+
+.program-image img{
+  width:100%;
+  display:block;
+}
+
+.program-body{
+  padding:18px 18px 20px;
+}
+
+.program-body h3{
+  margin:0 0 6px;
+  font-size:18px;
+  color:#0e1b35;
+}
+
+.program-tagline{
+  margin:0 0 10px;
+  font-size:14px;
+  color:#6b7280;
+  font-weight:500;
+}
+
+.program-body p{
+  font-size:14px;
+  line-height:1.6;
+  color:#4b5567;
+  margin-bottom:10px;
+}
+
+.program-link{
+  display:inline-block;
+  margin-top:6px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  color:#003d99;
+}
+
+.program-link:hover{
+  text-decoration:underline;
+}
+
+.program-extra{
+  margin-top:10px;
+}
+
+.program-extra h3{
+  font-size:20px;
+  margin-bottom:16px;
+  color:#0e1b35;
+}
+
+.program-extra-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:24px;
+}
+
+.program-extra-item h4{
+  margin:0 0 6px;
+  font-size:16px;
+  color:#003366;
+}
+
+.program-extra-item p{
+  margin:0;
+  font-size:14px;
+  line-height:1.6;
+  color:#4b5567;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .program-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px){
+  .program-grid{
+    grid-template-columns:1fr;
+  }
+  .programs-header h2{
+    font-size:28px;
+  }
+  .program-extra-grid{
+    grid-template-columns:1fr;
+  }
+}
+.site-footer{
+  background:#0e1b35;
+  color:#d7deea;
+  padding:1px 20px 20px;
+/*  margin-top:60px;*/
+  font-family:Inter, Arial, sans-serif;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+}
+
+.footer-col{
+  flex:1 1 220px;
+}
+
+.footer-brand h3{
+  font-size:24px;
+  margin-bottom:10px;
+  color:#ffffff;
+}
+
+.footer-brand p{
+  font-size:14px;
+  line-height:1.6;
+  color:#d7deea;
+  max-width:300px;
+}
+
+.footer-col h4{
+  font-size:16px;
+  margin-bottom:12px;
+  color:#ffffff;
+}
+
+.footer-col ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.footer-col li{
+  margin-bottom:8px;
+}
+
+.footer-col a{
+  color:#d7deea;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.footer-col a:hover{
+  text-decoration:underline;
+}
+
+.footer-contact li{
+  font-size:14px;
+  color:#d7deea;
+}
+
+.footer-bottom{
+/*  margin-top:40px;*/
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:15px;
+  text-align:center;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  color:#b8c1d4;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  .footer-inner{
+    flex-direction:column;
+  }
+}
+.volunteers-section{
+  padding:80px 20px 90px;
+  background:#ffffff;
+}
+
+.volunteers-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.volunteers-header{
+  max-width:750px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+
+.volunteers-header h2{
+  font-size:32px;
+  margin-bottom:14px;
+  color:#0e1b35;
+}
+
+.volunteers-header p{
+  font-size:16px;
+  line-height:1.7;
+  color:#4b5567;
+  margin-bottom:8px;
+}
+
+.volunteer-roles{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:24px;
+  margin-bottom:40px;
+}
+
+.vol-role{
+  background:#f7f9ff;
+  border:1px solid #dde3f0;
+  border-radius:10px;
+  padding:20px 22px;
+}
+
+.vol-role h3{
+  margin:0 0 10px;
+  font-size:18px;
+  color:#003366;
+}
+
+.vol-role p{
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  color:#4b5567;
+}
+
+.volunteers-cta{
+  max-width:750px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.volunteers-cta p{
+  font-size:15px;
+  line-height:1.7;
+  color:#4b5567;
+  margin-bottom:16px;
+}
+
+.volunteers-cta a{
+  color:#003d99;
+  text-decoration:none;
+}
+
+.volunteers-cta a:hover{
+  text-decoration:underline;
+}
+
+.btn-volunteer{
+  display:inline-block;
+  margin-top:4px;
+  padding:12px 26px;
+  border-radius:6px;
+  background:#003d99;
+  color:#ffffff !important;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.btn-volunteer:hover{
+  opacity:0.95;
+}
+
+/* Responsive */
+@media(max-width:800px){
+  .volunteer-roles{
+    grid-template-columns:1fr;
+  }
+  .volunteers-header h2{
+    font-size:28px;
+  }
+}
+.sponsors-section{
+  padding:70px 20px 80px;
+  background:#f7f8fc;
+}
+
+.sponsors-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.sponsors-header{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 40px;
+}
+
+.sponsors-header h2{
+  font-size:30px;
+  margin-bottom:10px;
+  color:#0e1b35;
+}
+
+.sponsors-header p{
+  font-size:15px;
+  line-height:1.6;
+  color:#4b5567;
+}
+
+.sponsors-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:24px;
+  align-items:center;
+  justify-items:center;
+}
+
+.sponsor-logo{
+  width:100%;
+  height:150px;                  
+  background:#ffffff;
+  border-radius:10px;
+  border:1px solid #dde3f0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.04);
+  padding:20px;                   
+  box-sizing:border-box;           
+}
+
+.sponsor-logo img{
+  width:auto;
+  height:auto;
+  max-height:100%;                 
+  max-width:100%;
+  object-fit:contain;              
+  display:block;
+  opacity:0.95;
+}
+
+.sponsor-logo img:hover{
+  opacity:1;
+}
+
+
+
+/* Responsive */
+@media(max-width:900px){
+  .sponsors-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+/* Mobile */
+@media(max-width:500px){
+  .sponsors-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+
+@media(max-width:480px){
+  .sponsors-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+.donate-section{
+  padding:80px 20px 90px;
+  background:#ffffff;
+}
+
+.donate-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.donate-header{
+  max-width:750px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+
+.donate-header h2{
+  font-size:32px;
+  margin-bottom:14px;
+  color:#0e1b35;
+}
+
+.donate-header p{
+  font-size:16px;
+  line-height:1.7;
+  color:#4b5567;
+  margin:0;
+}
+
+.donate-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:24px;
+  margin-bottom:32px;
+}
+
+.donate-card{
+  background:#f7f9ff;
+  border-radius:10px;
+  border:1px solid #dde3f0;
+  padding:22px 24px;
+}
+
+.donate-card h3{
+  margin:0 0 10px;
+  font-size:18px;
+  color:#003366;
+}
+
+.donate-card p{
+  margin:0 0 10px;
+  font-size:14px;
+  line-height:1.7;
+  color:#4b5567;
+}
+
+.donate-highlight{
+  font-size:15px;
+  line-height:1.6;
+  font-weight:600;
+  color:#0e1b35;
+}
+
+.donate-highlight a{
+  color:#003d99;
+  text-decoration:none;
+}
+
+.donate-highlight a:hover{
+  text-decoration:underline;
+}
+
+.donate-note{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto;
+  border-top:1px solid #e1e6f2;
+  padding-top:18px;
+}
+
+.donate-note p{
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  color:#4b5567;
+}
+
+.donate-ein{
+  font-weight:600;
+  color:#0e1b35;
+}
+
+/* Responsive */
+@media(max-width:800px){
+  .donate-grid{
+    grid-template-columns:1fr;
+  }
+  .donate-header h2{
+    font-size:28px;
+  }
+}
+/* NAVIGATION BAR */
+.navbar{
+  width:100%;
+  background:#00284d;
+  color:#ffffff;
+  padding:12px 20px;
+  position:fixed;        /* keeps it at top */
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:0.5px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:500;
+}
+
+.nav-links li a:hover{
+  text-decoration:underline;
+}
+
+/* Mobile toggle button */
+.nav-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:800px){
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#003366;
+    flex-direction:column;
+    gap:16px;
+    padding:20px;
+    border-radius:8px;
+    display:none;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+}
+/* HERO LAYOUT UPDATE */
+.hero{
+  width:100%;
+  padding:90px 20px;
+  background:linear-gradient(135deg, #003366 0%, #001A33 100%);
+  color:#ffffff;
+}
+
+.hero-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;          /* prevents horizontal scroll */
+}
+
+.hero-main{
+  flex:1 1 380px;
+}
+
+/* ANNOUNCEMENT CARD - MORE NOTICEABLE */
+.hero-announcements{
+  flex:0 0 320px;
+  max-width:340px;
+  background:#ffffff;
+  color:#0e1b35;
+  border-radius:14px;
+  padding:18px 18px 20px;
+  box-shadow:0 10px 32px rgba(0,0,0,0.35);
+  border:3px solid rgb(255, 103, 31);       
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.2s ease;
+}
+
+.hero-announcements:hover{
+  transform:translateY(-3px);         /* tiny float effect */
+}
+
+/* TOP TITLE + BADGE */
+.hero-announcement-heading{
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:#003366;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:14px;
+}
+
+/* SMALL BADGE FOR ATTENTION */
+.announce-badge{
+  font-size:11px;
+  font-weight:700;
+  background:#ffca3a;
+  color:#000000;
+  padding:2px 8px;
+  border-radius:30px;
+  text-transform:uppercase;
+}
+
+/* EACH ANNOUNCEMENT ITEM */
+.hero-announcement-item{
+  display:block;
+  text-decoration:none;
+  border-radius:8px;
+  border:1px solid #dde3f0;
+  background:#f7f9ff;
+  padding:12px 12px;
+  margin-bottom:12px;
+  transition:background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-announcement-item:hover{
+  background:#eef4ff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.hero-announcement-item .item-title{
+  display:block;
+  font-weight:800;             
+  font-size:15px;   
+             text-decoration:underline;  
+  color:#003366;               
+  margin-bottom:3px;
+  letter-spacing:0.2px;
+}
+
+.hero-announcement-item:hover .item-title{
+    
+  color:#00264d;               
+}
+
+.hero-announcement-item .item-sub{
+  display:block;
+  font-size:13px;
+  color:#4b5567;
+  margin-top:2px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-announcements{
+    flex:1 1 auto;
+    max-width:100%;
+    margin-top:26px;
+  }
+}
+
+
+
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="img/create-logo.png" style="height:45px;"></a></div>
+
+    <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#volunteers">Volunteers</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+<section class="hero" id="hero">
+  <div class="hero-inner">
+
+    <div class="hero-main">
+      <h1 class="hero-title">CREATE Foundation</h1>
+      <p class="hero-sub">
+        Inspiring and preparing the youth of today to become the engineers and scientists of tomorrow.
+        Through accessible, compelling, and safe robotics competitions, CREATE empowers students to learn, lead, and grow.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#about" class="btn-main">Learn More</a>
+        <a href="#volunteers" class="btn-outline">Our Values</a>
+      </div>
+    </div>
+
+    <!-- Announcement card on the right -->
+    <aside class="hero-announcements">
+      <div class="hero-announcement-heading">Announcements</div>
+
+      <a href="https://create-webcast.netlify.app/home" class="hero-announcement-item">
+        <span class="item-title">2025 U.S. Open Webcast</span>
+      </a>
+
+      <a href="https://create-found.org/CREATEU.S.Open2026.php" class="hero-announcement-item">
+        <span class="item-title">2026 VEX Robotics U.S. Open</span>
+        <span class="item-sub">VRC HS, VRC MS, VEX IQ</span>
+      </a>
+
+      <a href="https://create-found.org/2026CREATEWorldChampionship.php" class="hero-announcement-item">
+        <span class="item-title">2026 CREATE Robotics U.S. Open</span>
+        <span class="item-sub">CREATE Open, CREATE Jr.</span>
+      </a>
+    </aside>
+
+  </div>
+</section>
+
+
+<section class="about-section" id="about">
+  <div class="about-inner">
+
+    <div class="about-text">
+      <h2>About Us</h2>
+
+      <p>
+        The CREATE Foundation is a 501(c)(3) non-profit organization dedicated to supporting educational organizations, students, teachers, and mentors in advancing STEM education. Formed with the belief that compelling and engaging technology education is essential to our future, the Foundation supports robotics competitions that provide a unique, fun, and challenging year-round experience.
+      </p>
+
+      <p>
+        These sports-like, head-to-head robotics events not only deepen students’ technical knowledge but also strengthen teamwork, communication, and leadership skills. Headquartered in Omaha, Nebraska, CREATE hosts workshops, seminars, scrimmages, and tournaments—including our signature event, the CREATE U.S. Open Robotics Championship.
+      </p>
+
+      <p>
+        CREATE also leads international cultural exchange initiatives. Through summer and winter camps, international teams join U.S. students for cross-cultural learning that enhances language skills, technical abilities, and global understanding.
+      </p>
+
+      <p>
+        As a primarily volunteer-driven organization, CREATE is governed by a Board of Directors and guided by an Advisory Board—each composed entirely of dedicated volunteers from across the United States.
+      </p>
+    </div>
+
+    <div class="about-images">
+      <img src="img/about1.jpeg" alt="Robotics image 1">
+      <img src="img/about2.jpeg" alt="Robotics image 2">
+    </div>
+
+  </div>
+</section>
+<section class="programs-section" id="programs">
+  <div class="programs-inner">
+
+    <div class="programs-header">
+      <h2>Programs</h2>
+      <p>
+        CREATE offers a family of programs that engage students of all ages in hands-on robotics and technology challenges.
+      </p>
+    </div>
+
+    <div class="program-grid">
+      <!-- Program 1 -->
+      <article class="program-card">
+        <div class="program-image">
+          <img src="img/program1.jpg" alt="CREATE Junior robotics">
+        </div>
+        <div class="program-body">
+          <h3>CREATE Junior</h3>
+          <p class="program-tagline">Entry-level robotics for grade school students.</p>
+          <p>
+            CREATE Junior is an entry level program aimed at grade school students, primarily in 4th–6th grades. 
+            Students design their own unique robotic inventions and compete in alliances while learning technology and collaboration skills.
+          </p>
+          <a href="#" class="program-link">More &raquo;</a>
+        </div>
+      </article>
+
+      <!-- Program 2 -->
+      <article class="program-card">
+        <div class="program-image">
+          <img src="img/program2.jpg" alt="CREATE Open competition">
+        </div>
+        <div class="program-body">
+          <h3>CREATE Open</h3>
+          <p class="program-tagline">Advanced, open-technology robotics competition.</p>
+          <p>
+            The CREATE Open is an advanced robotics exhibition open to teams of any age and any robotics kit. 
+            Most events are geared toward 12th grade and younger, but university and professional teams are welcome to participate.
+          </p>
+          <a href="#" class="program-link">More &raquo;</a>
+        </div>
+      </article>
+
+      <!-- Program 3 -->
+      <article class="program-card">
+        <div class="program-image">
+          <img src="img/program3.jpg" alt="CREATE Drones program">
+        </div>
+        <div class="program-body">
+          <h3>CREATE Drones</h3>
+          <p class="program-tagline">Drone and robotics fusion for high school students.</p>
+          <p>
+            CREATE Drones serves primarily 9th–12th grade students using standard drones and team-built mechanisms. 
+            Students explore drones, robotics, and the engineering process in a unique and challenging program.
+          </p>
+          <a href="#" class="program-link">More &raquo;</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Extra programs row -->
+    <div class="program-extra">
+      <h3>More CREATE Initiatives</h3>
+
+      <div class="program-extra-grid">
+        <div class="program-extra-item">
+          <h4>CREATE International</h4>
+          <p>
+            CREATE International highlights our international teams and collaborations. 
+            Summer and winter robotics camps bring together students from around the world for a cross-cultural learning experience.
+          </p>
+        </div>
+        <div class="program-extra-item">
+          <h4>CREATE Support</h4>
+          <p>
+            CREATE Support focuses on VRC and other VEX-based competitions, offering cost-reducing programs and resources 
+            to help organizers and teams inspire the technology leaders of tomorrow.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="volunteers-section" id="volunteers">
+  <div class="volunteers-inner">
+
+    <div class="volunteers-header">
+      <h2>Volunteers Make It Possible</h2>
+      <p>
+        The CREATE Foundation and the robotics competitions it supports are made possible by the contributions of many dedicated volunteers. With their generous support, students experience life-changing opportunities in STEM, teamwork, and leadership.
+      </p>
+      <p>
+        Whether you are a mentor, coach, event organizer, or event volunteer, your contribution helps today’s students prepare for productive careers tomorrow.
+      </p>
+    </div>
+
+    <div class="volunteer-roles">
+      <article class="vol-role">
+        <h3>Mentors</h3>
+        <p>
+          Mentors share their technical talents, often supporting more than one team. They bring real-world engineering experience from a wide range of disciplines, guiding students through design, building, and problem-solving.
+        </p>
+      </article>
+
+      <article class="vol-role">
+        <h3>Coaches</h3>
+        <p>
+          Coaches are the glue that helps teams form and work together. They do not need a technical background—many are parents, teachers, or other adults who want to help students participate and grow.
+        </p>
+      </article>
+
+      <article class="vol-role">
+        <h3>Event Organizers</h3>
+        <p>
+          Event organizers play a key role in the robotics season. They plan and host regional and national tournaments, coordinating logistics and recruiting volunteers to create memorable events.
+        </p>
+      </article>
+
+      <article class="vol-role">
+        <h3>Event Volunteers</h3>
+        <p>
+          Event volunteers fill the many roles that make tournaments run smoothly. Judges, referees, registration helpers, queuing leads, practice-field facilitators, and technical support all work together to bring each event to life.
+        </p>
+      </article>
+    </div>
+
+    <div class="volunteers-cta">
+      <p>
+        Please join us and help today’s students prepare for tomorrow. To get involved or learn more about volunteer opportunities, contact us at
+        <a href="mailto:Support@CREATE-Found.org">Support@CREATE-Found.org</a>.
+      </p>
+      <a href="mailto:Support@CREATE-Found.org" class="btn-volunteer">Become a Volunteer</a>
+    </div>
+
+  </div>
+</section>
+<section class="sponsors-section" id="sponsors">
+  <div class="sponsors-inner">
+
+    <div class="sponsors-header">
+      <h2>Thank You to Our Sponsors</h2>
+      <p>
+        The CREATE Foundation is grateful for the generous support of our sponsors. 
+        Their commitment helps make our robotics programs, events, and student experiences possible.
+      </p>
+    </div>
+
+    <div class="sponsors-grid">
+      <!-- Replace src values with your real logo files -->
+      <div class="sponsor-logo">
+        <img src="img/logo1.jpg" alt="Cloverdale Manufacturing logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo2.jpg" alt="Sponsor 2 logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo3.jpg" alt="Sponsor 3 logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo4.jpeg" alt="Sponsor 4 logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo5.png" alt="Sponsor 5 logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo6.jpg" alt="Sponsor 6 logo">
+      </div>
+      <div class="sponsor-logo">
+        <img src="img/logo7.jpg" alt="Sponsor 7 logo">
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="donate-section" id="donate">
+  <div class="donate-inner">
+
+    <div class="donate-header">
+      <h2>Support CREATE</h2>
+      <p>
+        Generous donations from individuals and companies help thousands of students access a low-cost, compelling robotics learning experience. 
+        Your unrestricted gift to the Annual Fund allows CREATE to direct resources where they are needed most.
+      </p>
+    </div>
+
+    <div class="donate-grid">
+      <div class="donate-card">
+        <h3>Donate by Phone</h3>
+        <p>
+          To make a donation using Mastercard, Visa, or American Express, or to request an invoice, please call:
+        </p>
+        <p class="donate-highlight">
+          CREATE Foundation<br>
+          <a href="tel:14026142210">1-402-614-2210</a>
+        </p>
+      </div>
+
+      <div class="donate-card">
+        <h3>Donate by Mail</h3>
+        <p>Please make checks payable to <strong>"CREATE Foundation"</strong> and mail to:</p>
+        <p class="donate-highlight">
+          CREATE Foundation<br>
+          1510 Chandler Road W<br>
+          Bellevue, NE 68147
+        </p>
+        <p>If you wish, you may indicate the purpose of your gift on the check or in an accompanying letter.</p>
+      </div>
+    </div>
+
+    <div class="donate-note">
+      <p>
+        CREATE is a 501(c)(3) public charity, and donations to the CREATE Foundation are tax deductible to the extent allowed by current IRS laws and regulations.<br>
+        <span class="donate-ein">EIN # 26-1588619</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 CREATE Foundation. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
