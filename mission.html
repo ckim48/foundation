@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CREATE Foundation · Mission & Values</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* --- BASE STYLES --- */
+body{
+  margin:0;
+  font-family: "Inter", Arial, sans-serif;
+  background:#eef1f7;
+  color:#111827;
+}
+
+/* --- NAVIGATION BAR (SAME AS INDEX) --- */
+.navbar{
+  width:100%;
+  background:#00284d;
+  color:#ffffff;
+  padding:12px 20px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:0.5px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:500;
+}
+
+.nav-links li a:hover{
+  text-decoration:underline;
+}
+
+.nav-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+
+@media(max-width:800px){
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#003366;
+    flex-direction:column;
+    gap:16px;
+    padding:20px;
+    border-radius:8px;
+    display:none;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+}
+
+/* --- PAGE WRAPPER (SPACE UNDER FIXED NAV) --- */
+.page-main{
+  padding-top:80px;
+}
+
+/* --- ABOUT-STYLE SECTION (USED FOR MISSION) --- */
+.about-section{
+  padding:80px 20px;
+  background:radial-gradient(circle at top left,#ffffff 0%,#f7f9ff 55%,#f2f4fb 100%);
+  border-bottom:1px solid #e2e8f0;
+}
+
+.about-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:40px;
+  align-items:flex-start;
+}
+
+/* small label above title */
+.section-kicker{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#6b7280;
+  margin-bottom:6px;
+}
+
+.about-text{
+  flex:1 1 500px;
+}
+
+.about-text h2{
+  font-size:32px;
+  margin:0 0 14px;
+  color:#0e1b35;
+  position:relative;
+}
+
+.about-text h2::after{
+  content:"";
+  display:block;
+  width:52px;
+  height:3px;
+  border-radius:999px;
+  background:#007bff;
+  margin-top:8px;
+}
+
+.about-text p{
+  font-size:16px;
+  line-height:1.7;
+  margin-bottom:16px;
+  color:#4b5567;
+}
+
+/* emphasize keywords a bit more subtly */
+.about-text strong{
+  color:#003366;
+}
+
+/* bullet-like spacing lines */
+.about-text p + p{
+  margin-top:4px;
+}
+
+/* images column */
+.about-images{
+  flex:1 1 400px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.about-images img{
+  width:100%;
+  border-radius:14px;
+  border:1px solid #dce2ee;
+  box-shadow:0 10px 22px rgba(15,23,42,0.12);
+  object-fit:cover;
+  transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.about-images img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(15,23,42,0.24);
+  border-color:#b0c4ff;
+}
+
+@media(max-width:800px){
+  .about-inner{flex-direction:column;}
+  .about-images{
+    flex-direction:row;
+    flex-wrap:wrap;
+  }
+  .about-images img{
+    flex:1 1 30%;
+    min-width:120px;
+  }
+}
+
+/* --- VALUES SECTION (CARDS) --- */
+.volunteers-section{
+  padding:70px 20px 80px;
+  background:linear-gradient(180deg,#f7f8fc 0%,#edf1ff 100%);
+}
+
+.volunteers-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.volunteers-header{
+  max-width:750px;
+  margin:0 auto 40px;
+  text-align:center;
+}
+
+.volunteers-header h2{
+  font-size:30px;
+  margin-bottom:10px;
+  color:#0e1b35;
+}
+
+.volunteers-header p{
+  font-size:16px;
+  line-height:1.7;
+  color:#4b5567;
+  margin-bottom:8px;
+}
+
+.volunteer-roles{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:22px;
+  margin-bottom:10px;
+}
+
+/* slightly more modern value cards */
+.vol-role{
+  background:#ffffff;
+  border:1px solid #dde3f0;
+  border-radius:14px;
+  padding:18px 18px 20px;
+  box-shadow:0 10px 20px rgba(15,23,42,0.06);
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.vol-role::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(0,123,255,0.09),transparent 55%);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.18s ease;
+}
+
+.vol-role:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 28px rgba(15,23,42,0.12);
+  border-color:#c3d4ff;
+}
+
+.vol-role:hover::before{
+  opacity:1;
+}
+
+.vol-role h3{
+  margin:0 0 8px;
+  font-size:18px;
+  color:#003366;
+  position:relative;
+  z-index:1;
+}
+
+.vol-role p{
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  color:#4b5567;
+  position:relative;
+  z-index:1;
+}
+
+/* make grid responsive */
+@media(max-width:900px){
+  .volunteer-roles{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+@media(max-width:650px){
+  .volunteer-roles{
+    grid-template-columns:1fr;
+  }
+  .volunteers-header h2{
+    font-size:26px;
+  }
+}
+
+/* --- FOOTER --- */
+.site-footer{
+  background:#0e1b35;
+  color:#d7deea;
+  padding:10px 20px 18px;
+  font-family:Inter, Arial, sans-serif;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:10px;
+  text-align:center;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  color:#b8c1d4;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR (SAME) -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="img/create-logo.png" style="height:45px;" alt="CREATE Logo">
+      </a>
+    </div>
+
+    <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#hero">Home</a></li>
+      <li><a href="mission.html" class="active">Mission</a></li>
+      <li><a href="index.html#programs">Programs</a></li>
+      <li><a href="index.html#volunteers">Volunteers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-main">
+
+  <!-- MISSION TEXT + 3 IMAGES -->
+  <section class="about-section" id="mission">
+    <div class="about-inner">
+
+      <div class="about-text">
+        <div class="section-kicker">Our Mission</div>
+        <h2>Inspiring Tomorrow’s Engineers & Scientists</h2>
+
+        <p><strong>Create</strong></p>
+
+        <p>
+          To inspire and prepare the youth of today to become the engineers and scientists of tomorrow.
+        </p>
+
+        <p>
+          This will be done via competitive robotics competitions that are...
+        </p>
+
+        <p>
+          <strong>Compelling</strong> – Competitions will include both sports-like (head-to-head) competitions
+          as well as engaging social interaction through teamwork and alliances. A signature event will be
+          held annually to reward and celebrate team's accomplishments.
+        </p>
+
+        <p>
+          <strong>Accessible</strong> – By use of re-usable robotic kits/components, low annual and tournament
+          registration fees, and costs structured to reward schools/programs with multiple teams, we will help
+          ensure cost is not a barrier to participation. Tiered events and activities will be offered that make
+          hosting events accessible to any size school or group.
+        </p>
+
+        <p>
+          <strong>Inspiring</strong> – Robust challenges and tournaments that keep students engaged throughout
+          the year, are educationally rich and give appropriate focus to mechanical and electrical engineering,
+          and computer programming skills. All participants will be surrounded by others aspiring to live up to
+          the Values of CREATE.
+        </p>
+
+        <p>
+          <strong>Safe</strong> – Careful selection of equipment and focusing on proper safety procedures will
+          insure all participants have a safe environment to compete in.
+        </p>
+      </div>
+
+      <div class="about-images">
+        <!-- Replace the src paths with your actual mission images -->
+        <img src="img/mission/mission1.jpg" alt="Students competing in a robotics match">
+        <img src="img/mission/mission2.jpeg" alt="Team collaborating on a robot design">
+        <img src="img/mission/mission3.jpeg" alt="Robotics field and event atmosphere">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VALUES SECTION -->
+  <section class="volunteers-section" id="values">
+    <div class="volunteers-inner">
+
+      <div class="volunteers-header">
+        <h2>CREATE Values – “Honor by Design”</h2>
+        <p>
+          The CREATE Values define how teams, volunteers, and organizers are expected to act on and off the field.
+          They guide every interaction, match, and decision.
+        </p>
+      </div>
+
+      <div class="volunteer-roles">
+        <article class="vol-role">
+          <h3>Honest</h3>
+          <p>
+            Do “what’s right” when no one is looking.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Competitive</h3>
+          <p>
+            Always give your best. Be humble in victory and gracious in defeat.
+            Be respectful of your teammates, coaches, mentors, competitors, judges and spectators.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Collaborative</h3>
+          <p>
+            Act in the best interest of the team's goals and be supportive of each other.
+            Share knowledge, tools and parts with other teams.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Leader</h3>
+          <p>
+            Encourage, praise, involve and constructively challenge your teammates.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Professional</h3>
+          <p>
+            Works hard and is determined. Overcomes obstacles.
+            Is well trained and acts in a professional manner.
+          </p>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p>Contact Us &#8226; Legal Notices &#160;&#160;&#160;&#160; © Copyright 2008 CREATE</p>
+  </div>
+</footer>
+
+<script>
+  // Simple mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks  = document.getElementById('nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CREATE Foundation · Team Resources</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* --- BASE STYLES --- */
+body{
+  margin:0;
+  font-family: "Inter", Arial, sans-serif;
+  background:#eef1f7;
+  color:#111827;
+}
+
+/* --- NAVIGATION BAR (SAME STYLE) --- */
+.navbar{
+  width:100%;
+  background:#00284d;
+  color:#ffffff;
+  padding:12px 20px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:0.5px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:500;
+}
+
+.nav-links li a:hover{
+  text-decoration:underline;
+}
+
+.nav-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+@media(max-width:800px){
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#003366;
+    flex-direction:column;
+    gap:16px;
+    padding:20px;
+    border-radius:8px;
+    display:none;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+}
+
+/* --- PAGE WRAPPER --- */
+.page-main{
+  padding-top:80px;
+}
+
+/* --- TOP HERO / INTRO --- */
+.team-hero{
+  padding:60px 20px 40px;
+  background:
+    radial-gradient(circle at top left,#ffffff 0%,#f7f9ff 50%,#e3edff 100%);
+  border-bottom:1px solid #e2e8f0;
+}
+
+.team-hero-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.team-kicker{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.team-heading{
+  font-size:32px;
+  margin:0 0 12px;
+  color:#0e1b35;
+}
+
+.team-hero-text{
+  max-width:850px;
+  font-size:15px;
+  line-height:1.75;
+  color:#4b5567;
+  margin-bottom:18px;
+}
+
+/* small chips under intro */
+.team-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:6px;
+}
+
+.team-chip{
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#e3edff;
+  color:#1f3a72;
+  border:1px solid #c3d5ff;
+}
+
+/* --- SECTIONS WRAP --- */
+.team-section{
+  padding:40px 20px 80px;
+  background:#ffffff;
+}
+
+.team-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+/* two-column layout: content + right image column */
+.team-layout-wrapper{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) 280px;
+  gap:28px;
+  align-items:flex-start;
+}
+
+.team-left{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+
+.team-right{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  position:sticky;
+  top:100px;
+  height:max-content;
+}
+
+.team-right img{
+  width:100%;
+  height:170px;
+  border-radius:16px;
+  border:1px solid #dde3f0;
+  box-shadow:0 5px 14px rgba(20,30,60,0.08);
+  object-fit:cover;
+  background:#ffffff;
+}
+
+/* section card */
+.team-block{
+  position:relative;
+  background:#f7f8fc;
+  border-radius:16px;
+  border:1px solid #dde3f0;
+  padding:22px 24px 24px 30px;
+  box-shadow:0 6px 18px rgba(15,23,42,0.04);
+  overflow:hidden;
+}
+
+.team-block::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:4px;
+  height:100%;
+  background:linear-gradient(180deg,#007bff,#38bdf8);
+}
+
+.team-block-header{
+  margin-bottom:10px;
+}
+
+.team-block-eyebrow{
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#6b7280;
+  margin-bottom:3px;
+}
+
+.team-block-title{
+  font-size:20px;
+  margin:0 0 4px;
+  color:#0e1b35;
+}
+
+.team-block-sub{
+  font-size:14px;
+  color:#6b7280;
+  margin:0;
+}
+
+.team-block-body p{
+  font-size:14px;
+  line-height:1.75;
+  color:#4b5567;
+  margin:0 0 10px;
+}
+
+.team-links-list{
+  margin:10px 0 0 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.8;
+  color:#4b5567;
+}
+
+.team-links-list li{
+  margin-bottom:4px;
+}
+
+.team-links-list a{
+  color:#003d99;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.team-links-list a:hover{
+  text-decoration:underline;
+}
+
+/* quick resource card */
+.team-resources{
+  margin-top:8px;
+  padding:14px 16px;
+  border-radius:12px;
+  background:#eef3ff;
+  border:1px dashed #b6c7ff;
+  font-size:13px;
+  color:#374151;
+}
+
+.team-resources-title{
+  font-weight:600;
+  margin-bottom:6px;
+}
+
+/* --- FOOTER --- */
+.site-footer{
+  background:#0e1b35;
+  color:#d7deea;
+  padding:10px 20px 18px;
+  font-family:Inter, Arial, sans-serif;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:10px;
+  text-align:center;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  color:#b8c1d4;
+}
+
+/* responsive tweaks */
+@media(max-width:900px){
+  .team-layout-wrapper{
+    grid-template-columns:1fr;
+  }
+  .team-right{
+    position:static;
+    flex-direction:row;
+    overflow-x:auto;
+    padding-bottom:6px;
+  }
+  .team-right img{
+    width:200px;
+    height:140px;
+    flex-shrink:0;
+  }
+}
+
+@media(max-width:700px){
+  .team-heading{
+    font-size:26px;
+  }
+  .team-block{
+    padding:20px 18px 20px 24px;
+  }
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="img/create-logo.png" style="height:45px;"></a></div>
+
+    <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#volunteers">Volunteers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="page-main">
+
+  <!-- INTRO HERO -->
+  <section class="team-hero" id="hero">
+    <div class="team-hero-inner">
+      <div class="team-kicker">Teams &amp; Coaches</div>
+      <h1 class="team-heading">Resources for Competitive Robotics Teams</h1>
+      <p class="team-hero-text">
+        Being part of a competitive robotics team is a great way to learn technical as well as leadership and
+        communication skills. It can be a lot of fun and a lot of work. To help teams and coaches, CREATE has
+        put together resources for new teams and veteran teams alike. We hope you find the information below
+        useful and we welcome your feedback and suggestions on how to make our team page even better.
+      </p>
+
+      <div class="team-chips">
+        <span class="team-chip">Starting a Team</span>
+        <span class="team-chip">Coaching Support</span>
+        <span class="team-chip">Grants &amp; Funding</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <section class="team-section">
+    <div class="team-inner">
+
+      <div class="team-layout-wrapper">
+        <!-- LEFT: all text blocks -->
+        <div class="team-left">
+
+          <!-- Getting Started -->
+          <article class="team-block">
+            <header class="team-block-header">
+              <div class="team-block-eyebrow">Step 1</div>
+              <h2 class="team-block-title">Getting Started</h2>
+              <p class="team-block-sub">First steps for new teams and coaches.</p>
+            </header>
+            <div class="team-block-body">
+              <p>
+                Getting started can be one of the more confusing tasks in managing a team. To help navigate the
+                steps required, our <strong>How to Start a Team</strong> guide is a great place to begin.
+              </p>
+              <p>
+                It walks through registration, organizing students into a team, early scheduling decisions, and
+                how to approach your first season with realistic goals and expectations.
+              </p>
+
+              <div class="team-resources">
+                <div class="team-resources-title">Key resource</div>
+                <ul class="team-links-list">
+                  <li>
+                    <a href="howtostart.pdf" target="_blank">
+                      How to Start a Team (PDF)
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <!-- What Every Team Should Know -->
+          <article class="team-block">
+            <header class="team-block-header">
+              <div class="team-block-eyebrow">Essentials</div>
+              <h2 class="team-block-title">What Every Team Should Know</h2>
+              <p class="team-block-sub">Key links and tips for successful seasons.</p>
+            </header>
+            <div class="team-block-body">
+              <p>
+                There are some things that are important for every team to know. Below are links that many teams
+                have found valuable when preparing for a season and their first tournaments.
+              </p>
+              <p><strong>Important websites</strong></p>
+              <ul class="team-links-list">
+                <li>
+                  Team Registration:<br>
+                  <a href="http://robotevents.com/robot-competitions/vex-robotics-competition" target="_blank" rel="noopener">
+                    http://robotevents.com/robot-competitions/vex-robotics-competition
+                  </a>
+                </li>
+                <li>
+                  Equipment:<br>
+                  <a href="http://www.vexrobotics.com" target="_blank" rel="noopener">
+                    www.VexRobotics.com
+                  </a>
+                </li>
+                <li>
+                  Technical Info:<br>
+                  <a href="http://www.vexforum.com/wiki/index.php/Competition" target="_blank" rel="noopener">
+                    http://www.vexforum.com/wiki/index.php/Competition
+                  </a>
+                </li>
+                <li>
+                  Community Forum:<br>
+                  <a href="http://www.vexforum.com" target="_blank" rel="noopener">
+                    www.vexforum.com
+                  </a>
+                </li>
+                <li>
+                  Build &amp; design considerations:<br>
+                  <a href="http://www.vexforum.com/wiki/index.php/VEX_Competition_Tips_for_Teams" target="_blank" rel="noopener">
+                    VEX Competition Tips for Teams
+                  </a>
+                </li>
+                <li>
+                  Tournament checklist:<br>
+                  <a href="http://www.vexforum.com/wiki/index.php/101_Things_You_Should_Known_Before_Your_First_VEX_Tournament"
+                     target="_blank" rel="noopener">
+                    101 Things You Should Know Before Your First VEX Tournament
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Coaches -->
+          <article class="team-block">
+            <header class="team-block-header">
+              <div class="team-block-eyebrow">Coaching</div>
+              <h2 class="team-block-title">Support for Coaches</h2>
+              <p class="team-block-sub">Guidance for both new and experienced mentors.</p>
+            </header>
+            <div class="team-block-body">
+              <p>
+                You have a team, your parts are on order and you have a coach! At this point a new coach can't help
+                but wonder, “What have I gotten myself into?” Even without a formal handbook, we encourage coaches
+                to:
+              </p>
+              <ul class="team-links-list">
+                <li>Set clear expectations for meeting times and student responsibilities.</li>
+                <li>Emphasize teamwork, communication, and gracious professionalism.</li>
+                <li>Encourage students to drive the design process while adults provide structure and safety.</li>
+                <li>Connect with other coaches through events and online forums to share ideas.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Funding a Team + Grant PDF -->
+          <article class="team-block">
+            <header class="team-block-header">
+              <div class="team-block-eyebrow">Funding</div>
+              <h2 class="team-block-title">Funding a Team</h2>
+              <p class="team-block-sub">Ideas for grants, sponsors, and stretching your budget.</p>
+            </header>
+            <div class="team-block-body">
+              <p>
+                Team funding can come from many different sources: school budgets, family contributions, local
+                sponsors, community foundations, and grants. Clear communication about your team’s goals, impact,
+                and budget makes it easier for potential supporters to say “yes.”
+              </p>
+              <p>
+                CREATE has gained permission to publish a sample <strong>K–12 grant proposal</strong> from a school
+                that was successful in obtaining funding. Identifying information has been removed, but the
+                structure and language remain a helpful model for teams preparing their own proposals.
+              </p>
+
+              <div class="team-resources">
+                <div class="team-resources-title">Grant example</div>
+                <ul class="team-links-list">
+                  <li>
+                    <a href="K-12GrantProposa.pdf" target="_blank">
+                      K–12 Grant Proposal Example (PDF)
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <p style="margin-top:12px;">
+                As you develop your own funding strategy, consider a mix of small local sponsors, school support,
+                and occasional grant applications. Tracking your impact each season (students served, events
+                attended, awards, outreach) will make future funding requests even stronger.
+              </p>
+            </div>
+          </article>
+
+          <!-- Saving $$ (no extra PDFs mentioned) -->
+          <article class="team-block">
+            <header class="team-block-header">
+              <div class="team-block-eyebrow">Budget Tips</div>
+              <h2 class="team-block-title">Stretching Your Dollars</h2>
+              <p class="team-block-sub">Getting the most from limited resources.</p>
+            </header>
+            <div class="team-block-body">
+              <p>
+                Most teams are looking for ways to get the most out of their investment. Simple strategies such as
+                reusing parts, sharing tools across multiple teams, and prioritizing practice time over extra
+                hardware can significantly reduce costs.
+              </p>
+              <p>
+                CREATE has no affiliation with any of the companies teams may choose to purchase from. When
+                evaluating equipment, focus on durability, availability of replacement parts, and how much
+                educational value each purchase will provide over multiple seasons.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- RIGHT: image column -->
+        <aside class="team-right">
+          <img src="img/team/team1.jpg" alt="CREATE robotics team working on a robot">
+          <img src="img/team/team2.jpg" alt="Students competing at a robotics event">
+          <img src="img/team/team3.jpg" alt="Coaches and students collaborating in the pit">
+        </aside>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p>Contact Us &#8226; Legal Notices &#160;&#160;&#160;&#160; © Copyright 2008 CREATE</p>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks  = document.getElementById('nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+</script>
+
+</body>
+</html>

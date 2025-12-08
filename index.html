@@ -450,24 +450,6 @@ body{
   color:#4b5567;
 }
 
-@media(max-width:900px){
-  .program-grid{
-    grid-template-columns:repeat(2, minmax(0,1fr));
-  }
-}
-
-@media(max-width:650px){
-  .program-grid{
-    grid-template-columns:1fr;
-  }
-  .programs-header h2{
-    font-size:28px;
-  }
-  .program-extra-grid{
-    grid-template-columns:1fr;
-  }
-}
-
 /* --- VOLUNTEERS SECTION --- */
 .volunteers-section{
   padding:80px 20px 90px;
@@ -477,12 +459,18 @@ body{
 .volunteers-inner{
   max-width:1100px;
   margin:0 auto;
+  display:flex;
+  gap:32px;
+  align-items:flex-start;
+}
+
+.volunteers-main{
+  flex:1 1 0;
 }
 
 .volunteers-header{
   max-width:750px;
-  margin:0 auto 40px;
-  text-align:center;
+  margin:0 0 40px;
 }
 
 .volunteers-header h2{
@@ -527,8 +515,7 @@ body{
 
 .volunteers-cta{
   max-width:750px;
-  margin:0 auto;
-  text-align:center;
+  margin:0;
 }
 
 .volunteers-cta p{
@@ -563,13 +550,21 @@ body{
   opacity:0.95;
 }
 
-@media(max-width:800px){
-  .volunteer-roles{
-    grid-template-columns:1fr;
-  }
-  .volunteers-header h2{
-    font-size:28px;
-  }
+/* right-side images in volunteers */
+.volunteers-media{
+  flex:0 0 320px;
+  max-width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.volunteers-media img{
+  width:100%;
+  border-radius:10px;
+  border:2px solid #dce2ee;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  object-fit:cover;
 }
 
 /* --- SPONSORS SECTION --- */
@@ -637,25 +632,6 @@ body{
   opacity:1;
 }
 
-@media(max-width:900px){
-  .sponsors-grid{
-    grid-template-columns:repeat(2, minmax(0,1fr));
-  }
-}
-
-@media(max-width:500px){
-  .sponsors-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-
-@media(max-width:480px){
-  .sponsors-grid{
-    grid-template-columns:repeat(2, minmax(0,1fr));
-  }
-}
-
 /* --- DONATE SECTION --- */
 .donate-section{
   padding:80px 20px 90px;
@@ -665,12 +641,19 @@ body{
 .donate-inner{
   max-width:1100px;
   margin:0 auto;
+  display:flex;
+  gap:32px;
+  align-items:flex-start;
+}
+
+.donate-main{
+  flex:1 1 0;
 }
 
 .donate-header{
   max-width:750px;
-  margin:0 auto 40px;
-  text-align:center;
+  margin:0 auto 40px 0;
+  text-align:left;
 }
 
 .donate-header h2{
@@ -730,9 +713,9 @@ body{
 }
 
 .donate-note{
-  text-align:center;
+  text-align:left;
   max-width:800px;
-  margin:0 auto;
+  margin:0;
   border-top:1px solid #e1e6f2;
   padding-top:18px;
 }
@@ -749,13 +732,21 @@ body{
   color:#0e1b35;
 }
 
-@media(max-width:800px){
-  .donate-grid{
-    grid-template-columns:1fr;
-  }
-  .donate-header h2{
-    font-size:28px;
-  }
+/* right-side images in donate */
+.donate-media{
+  flex:0 0 320px;
+  max-width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.donate-media img{
+  width:100%;
+  border-radius:10px;
+  border:2px solid #dce2ee;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  object-fit:cover;
 }
 
 /* --- FOOTER --- */
@@ -833,10 +824,111 @@ body{
   color:#b8c1d4;
 }
 
+/* --- RESPONSIVE TWEAKS --- */
+@media(max-width:900px){
+  .program-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+  .volunteers-inner{
+    flex-direction:column;
+  }
+  .volunteers-header{
+    margin:0 auto 40px;
+    text-align:center;
+  }
+  .volunteers-cta{
+    margin:0 auto;
+    text-align:center;
+  }
+  .volunteers-media{
+    max-width:100%;
+    flex-direction:row;
+    flex-wrap:wrap;
+  }
+  .volunteers-media img{
+    flex:1 1 30%;
+  }
+
+  .donate-inner{
+    flex-direction:column;
+  }
+  .donate-header{
+    margin:0 auto 40px;
+    text-align:center;
+  }
+  .donate-note{
+    text-align:center;
+    margin:0 auto;
+  }
+  .donate-media{
+    max-width:100%;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .donate-media img{
+    flex:1 1 45%;
+  }
+}
+
+@media(max-width:800px){
+  .about-inner{flex-direction:column;}
+  .about-images{flex-direction:row; flex-wrap:wrap;}
+  .about-images img{flex:1 1 45%;}
+
+  .volunteer-roles{
+    grid-template-columns:1fr;
+  }
+  .volunteers-header h2{
+    font-size:28px;
+  }
+
+  .donate-grid{
+    grid-template-columns:1fr;
+  }
+  .donate-header h2{
+    font-size:28px;
+  }
+}
+
+@media(max-width:650px){
+  .program-grid{
+    grid-template-columns:1fr;
+  }
+  .programs-header h2{
+    font-size:28px;
+  }
+  .program-extra-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 @media(max-width:700px){
   .footer-inner{
     flex-direction:column;
   }
+}
+
+.mission-cta{
+  margin-top:24px;
+}
+
+.mission-btn{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:999px;
+  border:1.5px solid #003d99;
+  color:#003d99;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  background:#ffffff;
+  transition:all 0.2s ease;
+}
+
+.mission-btn:hover{
+  background:#003d99;
+  color:#ffffff;
 }
 </style>
 </head>
@@ -850,10 +942,10 @@ body{
 
     <ul class="nav-links" id="nav-links">
       <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="mission.html">Mission</a></li>
       <li><a href="#programs">Programs</a></li>
       <li><a href="#volunteers">Volunteers</a></li>
-      <li><a href="#sponsors">Sponsors</a></li>
+      <li><a href="team.html">Team</a></li>
       <li><a href="#donate">Donate</a></li>
     </ul>
   </div>
@@ -918,6 +1010,11 @@ body{
       <p>
         As a primarily volunteer-driven organization, CREATE is governed by a Board of Directors and guided by an Advisory Board—each composed entirely of dedicated volunteers from across the United States.
       </p>
+
+      <div class="mission-cta">
+        <a href="board.html" class="mission-btn">Board of Directors</a>
+      </div>
+
     </div>
 
     <div class="about-images">
@@ -927,6 +1024,7 @@ body{
 
   </div>
 </section>
+
 <section class="programs-section" id="programs">
   <div class="programs-inner">
 
@@ -1007,59 +1105,122 @@ body{
 
   </div>
 </section>
+
 <section class="volunteers-section" id="volunteers">
   <div class="volunteers-inner">
 
-    <div class="volunteers-header">
-      <h2>Volunteers Make It Possible</h2>
-      <p>
-        The CREATE Foundation and the robotics competitions it supports are made possible by the contributions of many dedicated volunteers. With their generous support, students experience life-changing opportunities in STEM, teamwork, and leadership.
-      </p>
-      <p>
-        Whether you are a mentor, coach, event organizer, or event volunteer, your contribution helps today’s students prepare for productive careers tomorrow.
-      </p>
+    <div class="volunteers-main">
+      <div class="volunteers-header">
+        <h2>Volunteers Make It Possible</h2>
+        <p>
+          The CREATE Foundation and the robotics competitions it supports are made possible by the contributions of many dedicated volunteers. With their generous support, students experience life-changing opportunities in STEM, teamwork, and leadership.
+        </p>
+        <p>
+          Whether you are a mentor, coach, event organizer, or event volunteer, your contribution helps today’s students prepare for productive careers tomorrow.
+        </p>
+      </div>
+
+      <div class="volunteer-roles">
+        <article class="vol-role">
+          <h3>Mentors</h3>
+          <p>
+            Mentors share their technical talents, often supporting more than one team. They bring real-world engineering experience from a wide range of disciplines, guiding students through design, building, and problem-solving.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Coaches</h3>
+          <p>
+            Coaches are the glue that helps teams form and work together. They do not need a technical background—many are parents, teachers, or other adults who want to help students participate and grow.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Event Organizers</h3>
+          <p>
+            Event organizers play a key role in the robotics season. They plan and host regional and national tournaments, coordinating logistics and recruiting volunteers to create memorable events.
+          </p>
+        </article>
+
+        <article class="vol-role">
+          <h3>Event Volunteers</h3>
+          <p>
+            Event volunteers fill the many roles that make tournaments run smoothly. Judges, referees, registration helpers, queuing leads, practice-field facilitators, and technical support all work together to bring each event to life.
+          </p>
+        </article>
+      </div>
+
+      <div class="volunteers-cta">
+        <p>
+          Please join us and help today’s students prepare for tomorrow. To get involved or learn more about volunteer opportunities, contact us at
+          <a href="mailto:Support@CREATE-Found.org">Support@CREATE-Found.org</a>.
+        </p>
+        <a href="mailto:Support@CREATE-Found.org" class="btn-volunteer">Become a Volunteer</a>
+      </div>
     </div>
 
-    <div class="volunteer-roles">
-      <article class="vol-role">
-        <h3>Mentors</h3>
-        <p>
-          Mentors share their technical talents, often supporting more than one team. They bring real-world engineering experience from a wide range of disciplines, guiding students through design, building, and problem-solving.
-        </p>
-      </article>
-
-      <article class="vol-role">
-        <h3>Coaches</h3>
-        <p>
-          Coaches are the glue that helps teams form and work together. They do not need a technical background—many are parents, teachers, or other adults who want to help students participate and grow.
-        </p>
-      </article>
-
-      <article class="vol-role">
-        <h3>Event Organizers</h3>
-        <p>
-          Event organizers play a key role in the robotics season. They plan and host regional and national tournaments, coordinating logistics and recruiting volunteers to create memorable events.
-        </p>
-      </article>
-
-      <article class="vol-role">
-        <h3>Event Volunteers</h3>
-        <p>
-          Event volunteers fill the many roles that make tournaments run smoothly. Judges, referees, registration helpers, queuing leads, practice-field facilitators, and technical support all work together to bring each event to life.
-        </p>
-      </article>
-    </div>
-
-    <div class="volunteers-cta">
-      <p>
-        Please join us and help today’s students prepare for tomorrow. To get involved or learn more about volunteer opportunities, contact us at
-        <a href="mailto:Support@CREATE-Found.org">Support@CREATE-Found.org</a>.
-      </p>
-      <a href="mailto:Support@CREATE-Found.org" class="btn-volunteer">Become a Volunteer</a>
-    </div>
+    <aside class="volunteers-media">
+      <img src="img/volunteer1.jpg" alt="Volunteer supporting students at a robotics event">
+      <img src="img/volunteer2.jpg" alt="Volunteers working together during a competition">
+      <img src="img/volunteer3.jpg" alt="Judges and volunteers on the competition field">
+    </aside>
 
   </div>
 </section>
+
+<section class="donate-section" id="donate">
+  <div class="donate-inner">
+
+    <div class="donate-main">
+      <div class="donate-header">
+        <h2>Support CREATE</h2>
+        <p>
+          Generous donations from individuals and companies help thousands of students access a low-cost, compelling robotics learning experience.
+          Your unrestricted gift to the Annual Fund allows CREATE to direct resources where they are needed most.
+        </p>
+      </div>
+
+      <div class="donate-grid">
+        <div class="donate-card">
+          <h3>Donate by Phone</h3>
+          <p>
+            To make a donation using Mastercard, Visa, or American Express, or to request an invoice, please call:
+          </p>
+          <p class="donate-highlight">
+            CREATE Foundation<br>
+            <a href="tel:14026142210">1-402-614-2210</a>
+          </p>
+        </div>
+
+        <div class="donate-card">
+          <h3>Donate by Mail</h3>
+          <p>Please make checks payable to <strong>"CREATE Foundation"</strong> and mail to:</p>
+          <p class="donate-highlight">
+            CREATE Foundation<br>
+            1510 Chandler Road W<br>
+            Bellevue, NE 68147
+          </p>
+          <p>If you wish, you may indicate the purpose of your gift on the check or in an accompanying letter.</p>
+        </div>
+      </div>
+
+      <div class="donate-note">
+        <p>
+          CREATE is a 501(c)(3) public charity, and donations to the CREATE Foundation are tax deductible to the extent allowed by current IRS laws and regulations.<br>
+          <span class="donate-ein">EIN # 26-1588619</span>
+        </p>
+      </div>
+    </div>
+
+    <aside class="donate-media">
+      <img src="img/donate.jpg" alt="Students competing at a robotics event supported by donors">
+      <img src="img/donate2.jpeg" alt="Robotics team celebrating success thanks to community support">
+    </aside>
+
+  </div>
+</section>
+
+
 <section class="sponsors-section" id="sponsors">
   <div class="sponsors-inner">
 
@@ -1097,53 +1258,8 @@ body{
 
   </div>
 </section>
-<section class="donate-section" id="donate">
-  <div class="donate-inner">
-
-    <div class="donate-header">
-      <h2>Support CREATE</h2>
-      <p>
-        Generous donations from individuals and companies help thousands of students access a low-cost, compelling robotics learning experience.
-        Your unrestricted gift to the Annual Fund allows CREATE to direct resources where they are needed most.
-      </p>
-    </div>
-
-    <div class="donate-grid">
-      <div class="donate-card">
-        <h3>Donate by Phone</h3>
-        <p>
-          To make a donation using Mastercard, Visa, or American Express, or to request an invoice, please call:
-        </p>
-        <p class="donate-highlight">
-          CREATE Foundation<br>
-          <a href="tel:14026142210">1-402-614-2210</a>
-        </p>
-      </div>
-
-      <div class="donate-card">
-        <h3>Donate by Mail</h3>
-        <p>Please make checks payable to <strong>"CREATE Foundation"</strong> and mail to:</p>
-        <p class="donate-highlight">
-          CREATE Foundation<br>
-          1510 Chandler Road W<br>
-          Bellevue, NE 68147
-        </p>
-        <p>If you wish, you may indicate the purpose of your gift on the check or in an accompanying letter.</p>
-      </div>
-    </div>
-
-    <div class="donate-note">
-      <p>
-        CREATE is a 501(c)(3) public charity, and donations to the CREATE Foundation are tax deductible to the extent allowed by current IRS laws and regulations.<br>
-        <span class="donate-ein">EIN # 26-1588619</span>
-      </p>
-    </div>
-
-  </div>
-</section>
 
 <footer class="site-footer">
-
   <div class="footer-bottom">
     <p>&copy; 2026 CREATE Foundation. All rights reserved.</p>
   </div>

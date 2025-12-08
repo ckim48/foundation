@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CREATE Foundation · Board of Directors</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* --- BASE STYLES --- */
+body{
+  margin:0;
+  font-family: "Inter", Arial, sans-serif;
+  background:#eef1f7;
+  color:#111827;
+}
+
+/* --- NAVIGATION BAR (SAME AS OTHER PAGES) --- */
+.navbar{
+  width:100%;
+  background:#00284d;
+  color:#ffffff;
+  padding:12px 20px;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.nav-logo{
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:0.5px;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:28px;
+  margin:0;
+  padding:0;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:#ffffff;
+  font-size:15px;
+  font-weight:500;
+}
+
+.nav-links li a:hover{
+  text-decoration:underline;
+}
+
+.nav-toggle{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+@media(max-width:800px){
+  .nav-toggle{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:60px;
+    right:20px;
+    background:#003366;
+    flex-direction:column;
+    gap:16px;
+    padding:20px;
+    border-radius:8px;
+    display:none;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+}
+
+
+/* --- PAGE WRAPPER --- */
+.page-main{
+  padding-top:80px;
+}
+
+/* --- TOP SUMMARY BAND --- */
+.board-summary{
+  padding:60px 20px 40px;
+  background:radial-gradient(circle at top left,#ffffff 0%,#f7f9ff 55%,#edf1ff 100%);
+/*  border-bottom:1px solid #e2e8f0;*/
+}
+
+.board-summary-inner{
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.board-kicker{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#6b7280;
+  margin-bottom:8px;
+}
+
+.board-heading{
+  font-size:32px;
+  margin:0 0 18px;
+  color:#0e1b35;
+}
+
+.board-names-wrap{
+  background:#ffffff;
+  border-radius:14px;
+  border:1px solid #dde3f0;
+  padding:18px 20px;
+  box-shadow:0 10px 22px rgba(15,23,42,0.06);
+}
+
+.board-names-title{
+  font-size:15px;
+  font-weight:600;
+  color:#374151;
+  margin-bottom:8px;
+}
+
+.board-names{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  font-size:14px;
+  color:#111827;
+}
+
+.board-name-pill{
+  padding:6px 12px;
+  border-radius:999px;
+  background:#f3f4ff;
+  border:1px solid #d2d7f5;
+}
+
+/* --- BOARD DETAIL SECTION --- */
+.board-section{
+  padding:60px 20px 80px;
+  background:#ffffff;
+}
+
+.board-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+
+.board-intro{
+  max-width:800px;
+  margin-bottom:10px;
+}
+
+.board-intro p{
+  font-size:15px;
+  line-height:1.7;
+  color:#4b5567;
+  margin:0;
+}
+
+/* individual member cards */
+.board-member{
+  background:#f7f8fc;
+  border-radius:14px;
+  border:1px solid #dde3f0;
+  padding:22px 22px 24px;
+  box-shadow:0 6px 18px rgba(15,23,42,0.05);
+}
+
+.board-member-header{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:6px;
+  margin-bottom:10px;
+  align-items:baseline;
+}
+
+.board-member-name{
+  font-size:18px;
+  font-weight:700;
+  color:#0e1b35;
+}
+
+.board-member-role{
+  font-size:14px;
+  font-weight:600;
+  color:#2563eb;
+}
+
+.board-member-body p{
+  font-size:14px;
+  line-height:1.75;
+  color:#4b5567;
+  margin:0 0 10px;
+}
+
+/* lists for community involvement */
+.board-member-body ul{
+  margin:4px 0 10px 18px;
+  padding:0;
+  font-size:14px;
+  line-height:1.7;
+  color:#4b5567;
+}
+
+.board-member-body li{
+  margin-bottom:2px;
+}
+
+/* --- FOOTER --- */
+.site-footer{
+  background:#0e1b35;
+  color:#d7deea;
+  padding:10px 20px 18px;
+  font-family:Inter, Arial, sans-serif;
+}
+
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:10px;
+  text-align:center;
+}
+
+.footer-bottom p{
+  font-size:13px;
+  color:#b8c1d4;
+}
+
+/* responsiveness */
+@media(max-width:700px){
+  .board-heading{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo"><a href="index.html"><img src="img/create-logo.png" style="height:45px;"></a></div>
+
+    <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#volunteers">Volunteers</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<main class="page-main">
+
+  <!-- SUMMARY BAND -->
+  <section class="board-summary">
+    <div class="board-summary-inner">
+      <div class="board-kicker">Leadership</div>
+      <h1 class="board-heading">Board of Directors</h1>
+      <div class="board-intro">
+        <p>
+          The CREATE Foundation is guided by a dedicated Board of Directors whose experience spans education,
+          engineering, technology, finance and global business. Their leadership ensures that CREATE remains
+          focused on its mission to inspire and prepare the next generation of engineers and scientists.
+        </p>
+      </div>
+<!--       <div class="board-names-wrap">
+        <div class="board-names-title">Board Members</div>
+        <div class="board-names">
+          <span class="board-name-pill">Jim Schulte – President</span>
+          <span class="board-name-pill">Peter (Rocky) Snawerdt</span>
+          <span class="board-name-pill">Mr. Ted Bridges</span>
+          <span class="board-name-pill">Mr. Timothy Connolly</span>
+          <span class="board-name-pill">Mr. William Fleissner</span>
+          <span class="board-name-pill">Mr. Dan Myers</span>
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <!-- DETAILED BIOS -->
+  <section class="board-section">
+    <div class="board-inner">
+
+
+
+      <!-- Jim Schulte -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. Jim Schulte</div>
+          <div class="board-member-role">President</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Schulte received his Bachelor of Science in Mathematics from Creighton University in 1983.
+            As an accredited teacher, he spent a number of years teaching mathematics, physics and computer
+            science at the high school level.
+          </p>
+          <p>
+            His professional career then extended to over 20 years in various roles within the Information
+            Technology Department of ConAgra Foods, a Fortune 500 Company. In 2006, Mr. Schulte left his
+            position as Vice-President of Information Technology, ConAgra Trade Group, to pursue
+            entrepreneurial interests.
+          </p>
+          <p>
+            He is currently a principal and partner in three separate companies involved with manufacturing,
+            technology and long-term care. Mr. Schulte, along with Mr. Snawerdt, is one of the founding
+            members of the CREATE Foundation.
+          </p>
+        </div>
+      </article>
+
+      <!-- Peter (Rocky) Snawerdt -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. Peter (Rocky) Snawerdt</div>
+          <div class="board-member-role">Vice President</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Snawerdt assumed leadership of the Electro-Optics and Electronic Warfare activities at
+            Harris Corporation in 1996. In 1999, he founded a high-tech company which he ran as President
+            and CEO until selling the company to one of the top three defense contractors in 2005.
+          </p>
+          <p>
+            He has also held numerous executive management positions (CEO, CTO or COO) within technology
+            start-up companies and currently holds eight patents for technical innovations, with other
+            patents pending.
+          </p>
+          <p>
+            Mr. Snawerdt has a Bachelor of Science in Electrical Engineering from Tulane University and a
+            Master of Science in Electrical Engineering from the University of Texas at Arlington.
+          </p>
+        </div>
+      </article>
+
+      <!-- Ted Bridges -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. Ted Bridges</div>
+          <div class="board-member-role">Director &amp; Investment Advisor</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Bridges approaches life and work with joyful passion. He enjoys everything about investing:
+            developing portfolio strategy, conducting company research, managing portfolios and communicating
+            with clients. As head of the firm’s investment team, he leads investment strategy, security
+            research and portfolio management efforts, and is active in new business development.
+          </p>
+
+          <p><strong>Education / Licenses &amp; Credentials</strong></p>
+          <ul>
+            <li>BA in Government and Economics, Dartmouth College</li>
+            <li>J.D., University of Nebraska College of Law</li>
+            <li>Chartered Financial Analyst (CFA)</li>
+          </ul>
+
+          <p><strong>Community Involvement</strong></p>
+          <ul>
+            <li>CFA Society Nebraska, Past President</li>
+            <li>Omaha-Lincoln Society of Financial Analysts, Past President</li>
+            <li>Investment Council of America, Member</li>
+            <li>Nebraska Bar Association, Member</li>
+            <li>Abide Network, Board Member</li>
+            <li>Dundee Presbyterian Church, Elder</li>
+            <li>Gretchen Swanson Center for Nutrition, Chairman of the Board</li>
+            <li>Duchesne Academy of the Sacred Heart, Board Member</li>
+            <li>Nebraska Humane Society, Past Board Member and Chairman</li>
+            <li>Business Ethics Alliance, Trustee</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Timothy Connolly -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. Timothy Connolly</div>
+          <div class="board-member-role">Director</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Connolly is the Director of Risk and Compliance at HDR, an engineering, architecture,
+            environmental and construction services firm with nearly 10,000 employees in 225 offices
+            worldwide. He oversees several functional groups including project management, quality,
+            risk management and technology, as well as the company’s compliance program.
+          </p>
+          <p>
+            He began with HDR in 1990 as a structural engineer in the firm’s architecture division and later
+            managed rail design services and major client relationships. He has held roles including Central
+            Region Director for HDR’s Environmental &amp; Resource Management business group, Director of
+            International and Professional Services Director—supporting global expansion and overseeing large
+            multidisciplinary teams.
+          </p>
+          <p>
+            Mr. Connolly is a graduate of the University of Kansas and a registered professional engineer. He
+            is also a Director on HDR’s Board, a position he has held since 2016.
+          </p>
+        </div>
+      </article>
+
+      <!-- William Fleissner -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. William Fleissner</div>
+          <div class="board-member-role">Director</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Fleissner is the Founder and President of Avionics Interface Technologies (AIT), a division of
+            Teradyne Inc.’s Defense and Aerospace Group. Following the acquisition by Teradyne, he has been
+            able to focus primarily on IR&amp;D direction for future products and major customers such as
+            Boeing, Lockheed Martin and Northrop Grumman.
+          </p>
+          <p>
+            Under his direction, AIT has developed a reputation for delivering high-technology, feature-rich
+            products with outstanding customer satisfaction, making AIT a leader in the avionics industry.
+          </p>
+          <p>
+            Mr. Fleissner has designed and installed a wide variety of military test and simulation systems for
+            the Department of Defense and its contractors, including telemetry monitoring and launch control
+            systems for the Tomahawk Cruise Missile Program; Atlas, Centaur, Titan and Delta ELVs; facilities
+            at Johnson Space Center; and many flight-test applications for NASA and DoD programs.
+          </p>
+          <p>
+            He has held roles in Design Engineering, Systems Integration, Program Management, Sales, Marketing
+            and Corporate Executive Management at General Instrument, General Dynamics, L3-Com (formerly Loral
+            Instrumentation) and SBS Technologies. Mr. Fleissner holds a Bachelor of Science in Electronics
+            Engineering from the University of Nebraska and has completed postgraduate studies at UCSD, UCLA,
+            MIT and Northwestern University’s J.L. Kellogg Graduate School of Management.
+          </p>
+        </div>
+      </article>
+
+      <!-- Dan Myers -->
+      <article class="board-member">
+        <div class="board-member-header">
+          <div class="board-member-name">Mr. Dan Myers</div>
+          <div class="board-member-role">Director &amp; Director of Accounting</div>
+        </div>
+        <div class="board-member-body">
+          <p>
+            Mr. Myers graduated with a BA in Accounting from Briar Cliff University and passed the examination
+            to become a Certified Public Accountant (CPA). His career began in public accounting and led to
+            roles as Chief Accounting Officer for a community-based bank and CFO for a multifaceted company
+            operating long-term care facilities, restaurants and commercial real estate.
+          </p>
+          <p>
+            He later became a consultant in the long-term care profession before serving as President/CEO and
+            managing partner of Careage Management, LLC, which owned and operated long-term care facilities in
+            Iowa and Nebraska. In this role he was responsible for operations as well as accounting and
+            financial functions.
+          </p>
+          <p>
+            After Careage sold its assets in 2011, Mr. Myers has continued as an owner/operator of a long-term
+            care facility and restaurants in both fine-dining and fast-casual segments.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <p>Contact Us &#8226; Legal Notices &#160;&#160;&#160;&#160; © Copyright 2008 CREATE</p>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks  = document.getElementById('nav-links');
+
+  if (navToggle && navLinks){
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+</script>
+
+</body>
+</html>
